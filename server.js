@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-mongoose.connect(dbUrl, dbErr => {
+mongoose.connect(dbUrl, { useNewUrlParser: true }, dbErr => {
   if (dbErr) throw new Error(dbErr)
   else console.log('db connected')
 
